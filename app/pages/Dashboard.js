@@ -5,20 +5,39 @@
 */
 
 import React from 'react';
-import { View, Text } from 'react-native';
-import { CardSection } from '../components/common'; // you acces by default to index.js
+import axios from 'axios';
+import { ScrollView } from 'react-native';
+import Client from '../components/Client';
 
 class Dashboard extends React.Component {
+
+  state = { clients: [] } // init the state
+
+  componentWillMount() { // automatic call as soon as this component is render in the screen fantastic place to load some data
+    axios.get('https://d2.flipdrive.com/hoXA1') //return a promise
+      .then(
+        response => this.setState({ clients: response.data}) // update state
+      );
+  }
+
+  renderClients() {
+    return this.state.clients.map(client =>
+      <Client key={client.id} client={client} /> // the prop name don't have to be the same the name of the variable
+    );
+  }
+
   static navigationOptions = {
     title: 'Dashboard',
   };
+
   render() {
-    return (
-      <View>
-        <CardSection>
-          <Text>Dashboard</Text>
-        </CardSection>
-      </View>
+
+    console.log(this.state);
+
+    return ( // expect to be scrollable
+      <ScrollView style={{backgroundColor: 'white'}}>
+        {this.renderClients()}
+      </ScrollView>
     );
   }
 }

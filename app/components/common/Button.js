@@ -3,12 +3,12 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
 // Make a component
-const Button = ({ onPress, children }) => {
+const Button = ({ onPress, children , type}) => {
 
-  const { buttonStyle, textStyle } = styles;
+  const { buttonStyle, textStyle, buttonSmallStyle } = styles;
 
-  return(
-    <TouchableOpacity onPress={onPress} style={buttonStyle}>
+  return (
+    <TouchableOpacity onPress={onPress} style={type === 'small' ?  buttonSmallStyle : buttonStyle}>
       <Text  style={textStyle}>
         {children}
       </Text>
@@ -24,9 +24,15 @@ const styles = {
     backgroundColor: '#fff',
     borderRadius: 5,
     borderColor: '#007aff',
-    borderWidth: .5,
+    borderWidth: 0.5,
     marginLeft: 5,
     marginRight: 5,
+    maxHeight: 45,
+  },
+
+  buttonSmallStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   textStyle: {
