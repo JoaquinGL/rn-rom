@@ -4,7 +4,6 @@
   Make the component available to other parts of the app
 */
 
-import React from 'react';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import { StackNavigator } from 'react-navigation';

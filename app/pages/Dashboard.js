@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { View, Text } from 'react-native';
-import { CardSection } from '../components/common';
+import { CardSection } from '../components/common'; // you acces by default to index.js
 
 class Dashboard extends React.Component {
   static navigationOptions = {

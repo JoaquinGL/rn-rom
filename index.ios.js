@@ -1,5 +1,5 @@
 import { AppRegistry } from 'react-native';
-import App from './src/assets/_includes/app';
+import App from './app/app';
 
 
 AppRegistry.registerComponent( 'rom', () => App);
