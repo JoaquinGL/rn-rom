@@ -1,6 +1,6 @@
 // Import libraries for making a component
 import React from 'react';
-import { View, Text, Linking, Image } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { Button } from './common';
 
 // Make a component
@@ -27,15 +27,16 @@ const Client = ({ client }) => {
     infoDealStyle,
     titleLinkStyle,
     directionRow,
-    infoTextStyle
+    infoTextStyle,
+    commonButtonTextStyle,
+    existingButtonTextStyle
   } = styles;
-
 
   var dealButton;
   if (exists === 'no') {
-    dealButton = <Button> CREATE NEW DEAL </Button>;
+    dealButton = <Button> <Text style={ commonButtonTextStyle }>CREATE NEW DEAL</Text> </Button>;
   } else {
-    dealButton = <Button> SEE EXISTING DEAL </Button>;
+    dealButton = <Button> <Text style={ existingButtonTextStyle }>SEE EXISTING DEAL</Text> </Button>;
   }
 
   const getIconSrc = () => {
@@ -106,9 +107,9 @@ const styles = {
     shadowRadius: 2,
 
     elevation: 1,
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10,
 
     backgroundColor: '#f9f9f9',
   },
@@ -156,6 +157,7 @@ const styles = {
     height: 150,
     paddingRight: 20,
     paddingLeft: 20,
+    marginTop: 5,
   },
 
   titleLinkStyle: {
@@ -171,7 +173,15 @@ const styles = {
     color: '#918f8f',
     fontSize: 11,
     paddingBottom: 2,
-  }
+  },
+
+  commonButtonTextStyle : {
+    fontWeight: '200'
+  },
+
+  existingButtonTextStyle : {
+    fontWeight: '500'
+  },
 
 };
 

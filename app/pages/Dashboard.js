@@ -6,8 +6,9 @@
 
 import React from 'react';
 import axios from 'axios';
-import { ScrollView } from 'react-native';
+import { ScrollView, View, Dimensions } from 'react-native';
 import Client from '../components/Client';
+import { Button, Tabs } from '../components/common';
 
 class Dashboard extends React.Component {
 
@@ -35,11 +36,29 @@ class Dashboard extends React.Component {
     console.log(this.state);
 
     return ( // expect to be scrollable
-      <ScrollView style={{backgroundColor: 'white'}}>
-        {this.renderClients()}
-      </ScrollView>
+
+      <View style = {styles.DashboardStyles}>
+        <Tabs>
+          <Button type="tab">Deals</Button>
+          <Button type="tab">Clients</Button>
+        </Tabs>
+        <View>
+          <ScrollView style={{marginBottom: 195}}>
+            {this.renderClients()}
+          </ScrollView>
+        </View>
+      </View>
     );
   }
 }
+
+var {height, width} = Dimensions.get('window');
+
+const styles = {
+  DashboardStyles: {
+    backgroundColor: 'white',
+    minHeight: height
+  }
+};
 
 export default Dashboard;

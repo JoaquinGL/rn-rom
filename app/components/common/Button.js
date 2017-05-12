@@ -8,21 +8,34 @@ const Button = ({ onPress, children , type}) => {
   const {
     buttonStyle,
     textStyle,
-    buttonSmallStyle
+    buttonSmallStyle,
+    buttonTabStyle,
+    tabTextStyle
   } = styles;
 
   const getButtonClass = (classType) => {
     switch (classType) {
       case 'small':
         return buttonSmallStyle;
+      case 'tab':
+        return buttonTabStyle;
       default:
         return buttonStyle;
     }
   };
 
+  const getTextButtonClass = (classType) => {
+    switch (classType) {
+      case 'tab':
+        return tabTextStyle;
+      default:
+        return textStyle;
+    }
+  };
+
   return (
     <TouchableOpacity onPress={onPress} style={ getButtonClass(type) }>
-      <Text  style={textStyle}>
+      <Text style={ getTextButtonClass(type) }>
         {children}
       </Text>
     </TouchableOpacity>
@@ -34,7 +47,6 @@ const styles = {
     flex: 1, // allows to expand all the size
     alignSelf: 'stretch',
     backgroundColor: '#fff',
-    borderRadius: 5,
     borderColor: 'lightgray',
     borderWidth: 0.5,
     marginLeft: 10,
@@ -55,6 +67,22 @@ const styles = {
     paddingTop: 10,
     paddingBottom: 10,
   },
+
+  tabTextStyle: {
+    alignSelf: 'center',
+    color: '#686868',
+    fontSize: 12,
+    paddingBottom: 15,
+    paddingTop: 15,
+  },
+
+  buttonTabStyle:{
+    alignItems: 'center',
+    width: 70,
+    backgroundColor: 'white',
+    borderColor: 'lightgray',
+    borderWidth: 0.5,
+  }
 
 };
 

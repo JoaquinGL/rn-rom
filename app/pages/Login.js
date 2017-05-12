@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Button, CardSection } from '../components/common';
+import { Button, Card, CardSection } from '../components/common';
 
 class Login extends React.Component {
   static navigationOptions = {
@@ -14,22 +14,37 @@ class Login extends React.Component {
   };
   render() {
     const { navigate } = this.props.navigation;
+
+    const {
+      loginStyles
+    } = styles;
+
     return (
-      <View>
-        <CardSection>
-          <Text>Username</Text>
-        </CardSection>
-        <CardSection>
-          <Text>Password</Text>
-        </CardSection>
-        <CardSection>
-          <Button onPress={() => navigate('Dashboard')}>
-            LOGIN IN
-          </Button>
-        </CardSection>
+      <View style={ loginStyles }>
+        <Card>
+          <CardSection>
+            <Text>Username</Text>
+          </CardSection>
+          <CardSection>
+            <Text>Password</Text>
+          </CardSection>
+          <CardSection>
+            <Button onPress={() => navigate('Dashboard')}>
+              LOGIN IN
+            </Button>
+          </CardSection>
+        </Card>
       </View>
     );
   }
 }
+
+const styles = {
+  loginStyles: {
+    flex: 1,
+    justifyContent: 'space-around',
+    backgroundColor: 'white',
+  }
+};
 
 export default Login;
