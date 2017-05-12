@@ -5,10 +5,23 @@ import { Text, TouchableOpacity } from 'react-native';
 // Make a component
 const Button = ({ onPress, children , type}) => {
 
-  const { buttonStyle, textStyle, buttonSmallStyle } = styles;
+  const {
+    buttonStyle,
+    textStyle,
+    buttonSmallStyle
+  } = styles;
+
+  const getButtonClass = (classType) => {
+    switch (classType) {
+      case 'small':
+        return buttonSmallStyle;
+      default:
+        return buttonStyle;
+    }
+  };
 
   return (
-    <TouchableOpacity onPress={onPress} style={type === 'small' ?  buttonSmallStyle : buttonStyle}>
+    <TouchableOpacity onPress={onPress} style={ getButtonClass(type) }>
       <Text  style={textStyle}>
         {children}
       </Text>
@@ -16,18 +29,18 @@ const Button = ({ onPress, children , type}) => {
   );
 };
 
-
 const styles = {
   buttonStyle: {
     flex: 1, // allows to expand all the size
     alignSelf: 'stretch',
     backgroundColor: '#fff',
     borderRadius: 5,
-    borderColor: '#007aff',
+    borderColor: 'lightgray',
     borderWidth: 0.5,
-    marginLeft: 5,
-    marginRight: 5,
-    maxHeight: 45,
+    marginLeft: 10,
+    marginRight: 10,
+    maxHeight: 40,
+    marginBottom: 10,
   },
 
   buttonSmallStyle: {
@@ -37,9 +50,8 @@ const styles = {
 
   textStyle: {
     alignSelf: 'center',
-    color: '#007aff',
-    fontSize: 16,
-    fontWeight: '600',
+    color: '#686868',
+    fontSize: 15,
     paddingTop: 10,
     paddingBottom: 10,
   },

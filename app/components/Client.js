@@ -23,7 +23,11 @@ const Client = ({ client }) => {
     actionImageStyle,
     statusImageStyle,
     statusTextStyle,
-    infoDealStyle
+    clientTextColor,
+    infoDealStyle,
+    titleLinkStyle,
+    directionRow,
+    infoTextStyle
   } = styles;
 
 
@@ -55,9 +59,9 @@ const Client = ({ client }) => {
 
   return (
     <View style={ containerStyle }>
-      <View className="header" style={ headerClientStyle }>
-        <View style={[statusStyle, headerPadding, headerClientStyle]}>
-          <Text className="status" style={ statusTextStyle }>
+      <View className="header" style={ [ directionRow, headerClientStyle ] }>
+        <View style={[ statusStyle, headerPadding, directionRow ]}>
+          <Text className="status" style={ [statusTextStyle, clientTextColor ] }>
             { status }
           </Text>
           <Image
@@ -65,7 +69,7 @@ const Client = ({ client }) => {
             source= { getIconSrc() }
           />
         </View>
-        <View style={ [actionStyle, headerPadding] }>
+        <View style={ [ actionStyle, headerPadding ] }>
           <Button type="small">
           <Image
             style= { actionImageStyle }
@@ -76,11 +80,11 @@ const Client = ({ client }) => {
       </View>
 
       <View className="info" style={ infoDealStyle }>
-        <Text className="titlelink">
+        <Text className="titlelink" style={ [titleLinkStyle, clientTextColor] }>
           { title }
         </Text>
-        <Text>{ id }</Text>
-        <Text>{ author }</Text>
+        <Text style={ infoTextStyle }>{ id }</Text>
+        <Text style={ infoTextStyle }>{ author }</Text>
       </View>
 
       { dealButton }
@@ -107,11 +111,18 @@ const styles = {
     marginTop: 10,
 
     backgroundColor: '#f9f9f9',
-
-    height: 220,
   },
 
   headerClientStyle: {
+    height: 40,
+  },
+
+  actionStyle : {
+    aspectRatio: 1,
+    marginRight: 10,
+  },
+
+  directionRow: {
     flexDirection: 'row'
   },
 
@@ -128,12 +139,7 @@ const styles = {
 
   statusTextStyle: {
     fontSize: 12,
-    color: '#918f8f',
     fontStyle: 'italic',
-  },
-
-  actionStyle : {
-    alignSelf: 'flex-end'
   },
 
   headerPadding : {
@@ -143,13 +149,28 @@ const styles = {
   actionImageStyle: {
     width: 20,
     height: 20,
-    flex: 1
+    marginTop: 0
   },
 
   infoDealStyle: {
-    height: 110,
+    height: 150,
     paddingRight: 20,
     paddingLeft: 20,
+  },
+
+  titleLinkStyle: {
+    fontSize: 20,
+    paddingBottom: 10,
+  },
+
+  clientTextColor: {
+    color: '#686868',
+  },
+
+  infoTextStyle : {
+    color: '#918f8f',
+    fontSize: 11,
+    paddingBottom: 2,
   }
 
 };

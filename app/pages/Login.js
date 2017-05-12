@@ -24,7 +24,7 @@ class Login extends React.Component {
         </CardSection>
         <CardSection>
           <Button onPress={() => navigate('Dashboard')}>
-            Login in
+            LOGIN IN
           </Button>
         </CardSection>
       </View>
