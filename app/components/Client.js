@@ -14,29 +14,14 @@ const Client = ({ client }) => {
     exists
   } = client;
 
-  const {
-    containerStyle,
-    headerClientStyle,
-    statusStyle,
-    actionStyle,
-    headerPadding,
-    actionImageStyle,
-    statusImageStyle,
-    statusTextStyle,
-    clientTextColor,
-    infoDealStyle,
-    titleLinkStyle,
-    directionRow,
-    infoTextStyle,
-    commonButtonTextStyle,
-    existingButtonTextStyle
-  } = styles;
+  var clientStyle = require('../assets/styles/components/clientStyles.js');
+  var textStyles = require('../assets/styles/common/textStyles.js');
 
   var dealButton;
   if (exists === 'no') {
-    dealButton = <Button> <Text style={ commonButtonTextStyle }>CREATE NEW DEAL</Text> </Button>;
+    dealButton = <Button> <Text style={ textStyles.commonButtonTextStyle }>CREATE NEW DEAL</Text> </Button>;
   } else {
-    dealButton = <Button> <Text style={ existingButtonTextStyle }>SEE EXISTING DEAL</Text> </Button>;
+    dealButton = <Button> <Text style={ textStyles.existingButtonTextStyle }>SEE EXISTING DEAL</Text> </Button>;
   }
 
   const getIconSrc = () => {
@@ -59,33 +44,54 @@ const Client = ({ client }) => {
   console.log(client);
 
   return (
-    <View style={ containerStyle }>
-      <View className="header" style={ [ directionRow, headerClientStyle ] }>
-        <View style={[ statusStyle, headerPadding, directionRow ]}>
-          <Text className="status" style={ [statusTextStyle, clientTextColor ] }>
+    <View style={ clientStyle.containerStyle }>
+      <View
+        className="header"
+        style={clientStyle.headerClientStyle}>
+
+        <View style={[
+            clientStyle.statusStyle
+          ]}>
+          <Text
+            className="status"
+            style={[
+              clientStyle.statusTextStyle,
+              textStyles.titleTextColor
+            ]}>
             { status }
           </Text>
           <Image
-            style= { statusImageStyle }
+            style= { clientStyle.statusImageStyle }
             source= { getIconSrc() }
           />
         </View>
-        <View style={ [ actionStyle, headerPadding ] }>
+
+        <View style={[
+            clientStyle.actionStyle
+          ]}>
           <Button type="small">
-          <Image
-            style= { actionImageStyle }
-            source={ require('../assets/images/3dots.png') }
-          />
+            <Image
+              style= { clientStyle.actionImageStyle }
+              source={ require('../assets/images/3dots.png') }
+            />
           </Button>
         </View>
+
       </View>
 
-      <View className="info" style={ infoDealStyle }>
-        <Text className="titlelink" style={ [titleLinkStyle, clientTextColor] }>
+      <View
+        className="info"
+        style={ clientStyle.infoDealStyle }>
+        <Text
+          className="titlelink"
+          style={[
+            clientStyle.titleLinkStyle,
+            textStyles.titleTextColor
+          ]}>
           { title }
         </Text>
-        <Text style={ infoTextStyle }>{ id }</Text>
-        <Text style={ infoTextStyle }>{ author }</Text>
+        <Text style={ [clientStyle.infoTextStyle, textStyles.subtitleTextColor] }>{ id }</Text>
+        <Text style={ [clientStyle.infoTextStyle, textStyles.subtitleTextColor] }>{ author }</Text>
       </View>
 
       { dealButton }
@@ -94,100 +100,8 @@ const Client = ({ client }) => {
   );
 };
 
-const styles = {
-  containerStyle: {
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-
-    elevation: 1,
-    marginLeft: 10,
-    marginRight: 10,
-    marginBottom: 10,
-
-    backgroundColor: '#f9f9f9',
-  },
-
-  headerClientStyle: {
-    height: 40,
-  },
-
-  actionStyle : {
-    aspectRatio: 1,
-    marginRight: 10,
-  },
-
-  directionRow: {
-    flexDirection: 'row'
-  },
-
-  statusStyle : {
-    flex: 1
-  },
-
-  statusImageStyle : {
-    width: 6,
-    height: 6,
-    marginTop: 5,
-    marginLeft: 4
-  },
-
-  statusTextStyle: {
-    fontSize: 12,
-    fontStyle: 'italic',
-  },
-
-  headerPadding : {
-    padding: 10
-  },
-
-  actionImageStyle: {
-    width: 20,
-    height: 20,
-    marginTop: 0
-  },
-
-  infoDealStyle: {
-    height: 150,
-    paddingRight: 20,
-    paddingLeft: 20,
-    marginTop: 5,
-  },
-
-  titleLinkStyle: {
-    fontSize: 20,
-    paddingBottom: 10,
-  },
-
-  clientTextColor: {
-    color: '#686868',
-  },
-
-  infoTextStyle : {
-    color: '#918f8f',
-    fontSize: 11,
-    paddingBottom: 2,
-  },
-
-  commonButtonTextStyle : {
-    fontWeight: '200'
-  },
-
-  existingButtonTextStyle : {
-    fontWeight: '500'
-  },
-
-};
-
 // Make the component available to other parts of the app
 export default Client;
-
 
 /*
   onClick={() => onFollowLink()}
