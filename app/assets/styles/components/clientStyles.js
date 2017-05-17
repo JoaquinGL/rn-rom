@@ -2,7 +2,7 @@ var React = require('react-native');
 
 const headerPadding = 10;
 
-var clientCardStyles = React.StyleSheet.create({
+var clientStyles = React.StyleSheet.create({
 /*/ ------------------------------------------------------------ CLIENT CARD */
   containerStyle: {
     borderWidth: 1,
@@ -16,9 +16,7 @@ var clientCardStyles = React.StyleSheet.create({
     shadowRadius: 2,
 
     elevation: 1,
-    marginLeft: 10,
-    marginRight: 10,
-    marginBottom: 10,
+    margin: 10,
 
     backgroundColor: '#f9f9f9',
   },
@@ -77,4 +75,4 @@ var clientCardStyles = React.StyleSheet.create({
 
 });
 
-module.exports = clientCardStyles;
+module.exports = clientStyles;

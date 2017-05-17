@@ -13,4 +13,5 @@ const App = StackNavigator({
   Dashboard: { screen: Dashboard }
 });
 
+
 export default App;

@@ -14,7 +14,7 @@ const Client = ({ client, style }) => {
     exists
   } = client;
 
-  var clientStyle = require('../assets/styles/components/clientCardStyles.js');
+  var clientStyle = require('../assets/styles/components/clientStyles.js');
   var textStyles = require('../assets/styles/common/textStyles.js');
 
   var dealButton;
