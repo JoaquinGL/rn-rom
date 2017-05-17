@@ -1,10 +1,9 @@
 var React = require('react-native');
-var textStyles = require('../common/textStyles.js');
 
 const headerPadding = 10;
 
-var clientStyles = React.StyleSheet.create({
-
+var clientCardStyles = React.StyleSheet.create({
+/*/ ------------------------------------------------------------ CLIENT CARD */
   containerStyle: {
     borderWidth: 1,
     borderRadius: 2,
@@ -23,16 +22,10 @@ var clientStyles = React.StyleSheet.create({
 
     backgroundColor: '#f9f9f9',
   },
-
+/*/ ------------------------------------------------------------ CLIENT HEADER */
   headerClientStyle: {
     height: 40,
     flexDirection: 'row'
-  },
-
-  actionStyle : {
-    aspectRatio: 1,
-    marginRight: 10,
-    padding: headerPadding
   },
 
   statusStyle : {
@@ -48,12 +41,18 @@ var clientStyles = React.StyleSheet.create({
     marginLeft: 4
   },
 
+  actionStyle : {
+    aspectRatio: 1,
+    marginRight: 10,
+    padding: headerPadding
+  },
+
   actionImageStyle: {
     width: 20,
     height: 20,
     marginTop: 0
   },
-
+/*/ ------------------------------------------------------------ CLIENT BODY */
   infoDealStyle: {
     height: 150,
     paddingRight: 20,
@@ -78,4 +77,4 @@ var clientStyles = React.StyleSheet.create({
 
 });
 
-module.exports = clientStyles;
+module.exports = clientCardStyles;

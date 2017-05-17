@@ -4,7 +4,7 @@ import { View, Text, Image } from 'react-native';
 import { Button } from './common';
 
 // Make a component
-const Client = ({ client }) => {
+const Client = ({ client, style }) => {
 
   const {
     title,
@@ -14,7 +14,7 @@ const Client = ({ client }) => {
     exists
   } = client;
 
-  var clientStyle = require('../assets/styles/components/clientStyles.js');
+  var clientStyle = require('../assets/styles/components/clientCardStyles.js');
   var textStyles = require('../assets/styles/common/textStyles.js');
 
   var dealButton;
