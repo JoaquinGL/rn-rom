@@ -40,16 +40,17 @@ var dealStyles = React.StyleSheet.create({
   },
 
   infoTitleTextStyle : {
-    fontSize: 11,
+    fontSize: 10,
     marginTop: 1,
+    maxWidth: 70,
   },
 
   infoDealContainerStyle: {
-    marginLeft: 10,
+    marginLeft: 5,
   },
 
   textContainerDealStyle: {
-    width: 165
+    width: 160
   }
 
 });

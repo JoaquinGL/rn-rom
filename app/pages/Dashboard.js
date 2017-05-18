@@ -36,7 +36,11 @@ export default class TopBarTextExample extends PureComponent<void, *, State> {
     ],
     clients: [],
     deals: [],
-    isLoading: true
+    isLoading: true,
+    externalData : {
+      clients: 'https://d2.flipdrive.com/djZtTz',
+      deals: 'https://d2.flipdrive.com/cet0nj'
+    }
   };
 
   _first: Object;
@@ -134,12 +138,12 @@ export default class TopBarTextExample extends PureComponent<void, *, State> {
   };
 
   componentWillMount() { // automatic call as soon as this component is render in the screen fantastic place to load some data
-    axios.get('https://d2.flipdrive.com/hoXA1') //return a promise
+    axios.get(this.state.externalData.clients) //return a promise
       .then(
         response => this.setState({ clients: response.data }) // update state
       );
 
-    axios.get('https://d2.flipdrive.com/epFn9F') //return a promise
+    axios.get(this.state.externalData.deals) //return a promise
       .then(
         response => this.setState({ deals: response.data, isLoading: false } ) // update state
       );
