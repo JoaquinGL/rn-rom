@@ -104,11 +104,11 @@ export default class TopBarTextExample extends PureComponent<void, *, State> {
       case '1':
 
         if (this.state.isLoading) {
-          return <View><Text>Loading...</Text></View>;
+          return <View style={ styles.loadingViewStyle }><Text style={{textAlign: 'center'}}>Loading...</Text></View>;
         }
         else {
           return (
-            <View style = {styles.DashboardStyles}>
+            <View style = {styles.dashboardStyles}>
               <View>
                 <ScrollView>
                   {this.renderDeals()}
@@ -120,7 +120,7 @@ export default class TopBarTextExample extends PureComponent<void, *, State> {
 
       case '2':
         return (
-          <View style = {styles.DashboardStyles}>
+          <View style={ styles.dashboardStyles }>
             <View>
               <ScrollView>
                 {this.renderClients()}
@@ -197,7 +197,11 @@ const styles = StyleSheet.create({
   page: {
     backgroundColor: '#f9f9f9',
   },
-  DashboardStyles: {
+  dashboardStyles: {
     backgroundColor: 'transparent'
+  },
+  loadingViewStyle: {
+    flex: 1,
+    justifyContent: 'center'
   }
 });

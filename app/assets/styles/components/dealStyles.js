@@ -27,7 +27,7 @@ var dealStyles = React.StyleSheet.create({
   },
 
   titleTextStyle : {
-    fontSize: 14,
+    fontSize: 13,
     marginRight: 10,
     color: '#555'
   },
@@ -47,6 +47,10 @@ var dealStyles = React.StyleSheet.create({
   infoDealContainerStyle: {
     marginLeft: 10,
   },
+
+  textContainerDealStyle: {
+    width: 165
+  }
 
 });
 
