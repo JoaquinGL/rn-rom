@@ -45,26 +45,28 @@ const Deal = ({ deal, style }) => {
         className="info"
         style={ dealStyles.infoDealStyle }>
 
-        <Text style={ [dealStyles.infoTextStyle, textStyles.subtitleTextColor] }>{ id }</Text>
-        <Text style={ [dealStyles.infoTextStyle, textStyles.subtitleTextColor] }>{ title }</Text>
-
-        <View>
-          <Text style={ [dealStyles.infoTextStyle, textStyles.subtitleTextColor] }>{ detail }</Text>
-          <Text style={ [dealStyles.infoTextStyle, textStyles.subtitleTextColor] }>{ info }</Text>
+        <View style={ dealStyles.textContainerDealStyle }>
+          <Text style={ [dealStyles.infoTextStyle, textStyles.subtitleTextColor] }>{ id }</Text>
+          <Text style={ [dealStyles.titleTextStyle, textStyles.listImportantTextColor] }>{ title }</Text>
         </View>
+        <View style={ [dealStyles.textContainerDealStyle, dealStyles.infoDealContainerStyle] }>
+          <Text style={ [dealStyles.infoTextStyle, textStyles.subtitleTextColor] }>{ detail }</Text>
+          <Text style={ [dealStyles.infoTitleTextStyle, textStyles.listImportantTextColor] }>{ info }</Text>
+        </View>
+
       </View>
 
       <View style = { dealStyles.actionContainer }>
-        <Button type="small">
+        <Button type="list">
           <Image
             style= { dealStyles.actionImageStyle }
-            source={ require('../assets/images/3dots.png') }
+            source={ require('../assets/images/pencil.png') }
           />
         </Button>
-        <Button type="small">
+        <Button type="list">
           <Image
             style= { dealStyles.actionImageStyle }
-            source={ require('../assets/images/3dots.png') }
+            source={ require('../assets/images/trash.png') }
           />
         </Button>
       </View>

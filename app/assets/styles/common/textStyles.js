@@ -21,6 +21,11 @@ var textStyles = React.StyleSheet.create({
   headerTextColor: {
     color: 'black'
   },
+
+  listImportantTextColor: {
+    color: '#555'
+  },
+
 /*/ ------------------------------------------------------------ TEXT */
   commonButtonTextStyle : {
     fontWeight: '200'

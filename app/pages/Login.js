@@ -16,24 +16,26 @@ class Login extends React.Component {
     const { navigate } = this.props.navigation;
 
     const {
-      loginStyles
+      loginStyles,
+      cardStyle,
+      fieldsetStyle,
+      labelStyle,
+      loginButtonStyle
     } = styles;
 
     return (
       <View style={ loginStyles }>
-        <Card>
-          <CardSection>
-            <Text>Username</Text>
-          </CardSection>
-          <CardSection>
-            <Text>Password</Text>
-          </CardSection>
-          <CardSection>
+        <View style={ cardStyle }>
+          <View style={ fieldsetStyle }>
+            <Text style={ labelStyle }>Username: </Text>
+            <Text style={ labelStyle }> Password: </Text>
+          </View>
+          <View style={ loginButtonStyle }>
             <Button onPress={() => navigate('Dashboard')}>
               LOGIN IN
             </Button>
-          </CardSection>
-        </Card>
+          </View>
+        </View>
       </View>
     );
   }
@@ -44,6 +46,28 @@ const styles = {
     flex: 1,
     justifyContent: 'space-around',
     backgroundColor: 'white',
+  },
+  cardStyle: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    margin: 10,
+  },
+  fieldsetStyle: {
+    padding: 10,
+    justifyContent: 'flex-start',
+    alignContent: 'flex-start',
+    marginBottom: 10,
+    marginTop: 20
+  },
+  loginButtonStyle: {
+    height: 60
+  },
+  labelStyle: {
+    marginBottom: 10,
   }
 };
 

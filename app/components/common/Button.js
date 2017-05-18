@@ -10,7 +10,8 @@ const Button = ({ onPress, children , type}) => {
     textStyle,
     buttonSmallStyle,
     buttonTabStyle,
-    tabTextStyle
+    tabTextStyle,
+    buttonListStyle
   } = styles;
 
   const getButtonClass = (classType) => {
@@ -19,6 +20,8 @@ const Button = ({ onPress, children , type}) => {
         return buttonSmallStyle;
       case 'tab':
         return buttonTabStyle;
+      case 'list':
+        return buttonListStyle;
       default:
         return buttonStyle;
     }
@@ -56,6 +59,13 @@ const styles = {
   },
 
   buttonSmallStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  buttonListStyle: {
+    height: 60,
+    width: 40,
     justifyContent: 'center',
     alignItems: 'center',
   },

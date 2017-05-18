@@ -14,10 +14,6 @@ type Route = {
 type State = NavigationState<Route>;
 
 export default class TopBarTextExample extends PureComponent<void, *, State> {
-  static title = 'Scroll views with lazy load';
-  static backgroundColor = '#fff';
-  static tintColor = '#222';
-  static appbarElevation = 0;
 
   static navigationOptions = {
    title: 'Dashboard',
@@ -71,9 +67,11 @@ export default class TopBarTextExample extends PureComponent<void, *, State> {
   };
 
   _renderLabel = props => ({ route, index }) => {
+    const colorSelectedTab = '#555';
+    const colorDisabledTab = 'lightgray';
     const inputRange = props.navigationState.routes.map((x, i) => i);
     const outputRange = inputRange.map(
-      inputIndex => (inputIndex === index ? '#555' : 'lightgray'),
+      inputIndex => (inputIndex === index ? colorSelectedTab : colorDisabledTab),
     );
     const color = props.position.interpolate({
       inputRange,
@@ -141,7 +139,7 @@ export default class TopBarTextExample extends PureComponent<void, *, State> {
         response => this.setState({ clients: response.data }) // update state
       );
 
-    axios.get('https://d2.flipdrive.com/clfaMx') //return a promise
+    axios.get('https://d2.flipdrive.com/epFn9F') //return a promise
       .then(
         response => this.setState({ deals: response.data, isLoading: false } ) // update state
       );
@@ -200,7 +198,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   },
   DashboardStyles: {
-    backgroundColor: 'transparent',
-    elevation: 0,
+    backgroundColor: 'transparent'
   }
 });

@@ -16,7 +16,10 @@ var clientStyles = React.StyleSheet.create({
     shadowRadius: 2,
 
     elevation: 1,
-    margin: 10,
+    marginTop: 5,
+    marginBottom: 5,
+    marginLeft: 10,
+    marginRight: 10,
 
     backgroundColor: '#f9f9f9',
   },
