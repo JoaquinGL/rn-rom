@@ -3,7 +3,7 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
 // Make a component
-const Button = ({ onPress, children , type}) => {
+const Button = ({ onPress, children , type }) => {
 
   const {
     buttonStyle,

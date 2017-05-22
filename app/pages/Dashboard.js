@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Animated, StyleSheet, View, ScrollView, Text } from 'react-native';
 import axios from 'axios';
 import { TabViewAnimated, TabBar } from 'react-native-tab-view';
@@ -13,7 +13,7 @@ type Route = {
 
 type State = NavigationState<Route>;
 
-export default class TopBarTextExample extends PureComponent<void, *, State> {
+class Dashboard extends React.Component {
 
   static navigationOptions = {
    title: 'Dashboard',
@@ -43,34 +43,34 @@ export default class TopBarTextExample extends PureComponent<void, *, State> {
     }
   };
 
-  _first: Object;
-  _second: Object;
+  first: Object;
+  second: Object;
 
-  _handleChangeTab = index => {
+  handleChangeTab = index => {
     this.setState({
       index,
     });
   };
 
-  _handleTabItemPress = ({ route }) => {
+  handleTabItemPress = ({ route }) => {
     if (route !== this.state.routes[this.state.index]) {
       return;
     }
     switch (route.key) {
       case '1':
-        if (this._first) {
-          this._first.scrollTo({ y: 0 });
+        if (this.first) {
+          this.first.scrollTo({ y: 0 });
         }
         break;
       case '2':
-        if (this._second) {
-          this._second.scrollTo({ y: 0 });
+        if (this.second) {
+          this.second.scrollTo({ y: 0 });
         }
         break;
     }
   };
 
-  _renderLabel = props => ({ route, index }) => {
+  renderLabel = props => ({ route, index }) => {
     const colorSelectedTab = '#555';
     const colorDisabledTab = 'lightgray';
     const inputRange = props.navigationState.routes.map((x, i) => i);
@@ -94,8 +94,8 @@ export default class TopBarTextExample extends PureComponent<void, *, State> {
       <TabBar
         {...props}
         pressColor="rgba(255, 64, 129, .5)"
-        onTabPress={this._handleTabItemPress}
-        renderLabel={this._renderLabel(props)}
+        onTabPress={this.handleTabItemPress}
+        renderLabel={this.renderLabel(props)}
         indicatorStyle={styles.indicator}
         tabStyle={styles.tab}
         style={styles.tabbar}
@@ -168,7 +168,7 @@ export default class TopBarTextExample extends PureComponent<void, *, State> {
         navigationState={this.state}
         renderScene={this._renderScene}
         renderHeader={this._renderHeader}
-        onRequestChangeTab={this._handleChangeTab}
+        onRequestChangeTab={this.handleChangeTab}
         lazy
       />
     );
@@ -209,3 +209,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
+
+export default Dashboard;

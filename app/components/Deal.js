@@ -1,7 +1,7 @@
 // Import libraries for making a component
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { Button } from './common';
+import { Button } from './common/Button';
 
 // Make a component
 const Deal = ({ deal, style }) => {
@@ -33,8 +33,6 @@ const Deal = ({ deal, style }) => {
         return 'gray';
     }
   };
-
-  console.log(deal);
 
   return (
     <View style={ dealStyles.containerStyle }>

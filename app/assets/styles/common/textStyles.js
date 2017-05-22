@@ -26,6 +26,10 @@ var textStyles = React.StyleSheet.create({
     color: '#555'
   },
 
+  listBackgroundColor: {
+    backgroundColor: '#f9f9f9'
+  },
+
 /*/ ------------------------------------------------------------ TEXT */
   commonButtonTextStyle : {
     fontWeight: '200'

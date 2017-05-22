@@ -1,10 +1,35 @@
 // Import libraries for making a component
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { Button } from './common';
+import { Button } from './common/Button';
 
 // Make a component
 const Client = ({ client, style }) => {
+
+  var dealButton;
+  var clientStyle = require('../assets/styles/components/clientStyles.js');
+  var textStyles = require('../assets/styles/common/textStyles.js');
+
+  const {
+    containerStyle,
+    headerClientStyle,
+    statusStyle,
+    statusTextStyle,
+    statusImageStyle,
+    actionStyle,
+    infoDealStyle,
+    titleLinkStyle,
+    infoTextStyle,
+    actionImageStyle
+  } = clientStyle;
+
+  const {
+    listBackgroundColor,
+    commonButtonTextStyle,
+    existingButtonTextStyle,
+    titleTextColor,
+    subtitleTextColor
+  } = textStyles;
 
   const {
     title,
@@ -13,16 +38,6 @@ const Client = ({ client, style }) => {
     author,
     exists
   } = client;
-
-  var clientStyle = require('../assets/styles/components/clientStyles.js');
-  var textStyles = require('../assets/styles/common/textStyles.js');
-
-  var dealButton;
-  if (exists === 'no') {
-    dealButton = <Button> <Text style={ textStyles.commonButtonTextStyle }>CREATE NEW DEAL</Text> </Button>;
-  } else {
-    dealButton = <Button> <Text style={ textStyles.existingButtonTextStyle }>SEE EXISTING DEAL</Text> </Button>;
-  }
 
   const getIconSrc = () => {
     switch (status) {
@@ -41,57 +56,70 @@ const Client = ({ client, style }) => {
     }
   };
 
-  console.log(client);
+  if (exists === 'no') {
+    dealButton = <Button> <Text style={ commonButtonTextStyle }>CREATE NEW DEAL</Text> </Button>;
+  } else {
+    dealButton = <Button> <Text style={ existingButtonTextStyle }>SEE EXISTING DEAL</Text> </Button>;
+  }
 
   return (
-    <View style={ clientStyle.containerStyle }>
+    <View style={[
+        containerStyle,
+        listBackgroundColor
+      ]}>
       <View
         className="header"
-        style={clientStyle.headerClientStyle}>
-
-        <View style={[
-            clientStyle.statusStyle
-          ]}>
+        style={ headerClientStyle }>
+        <View style={ statusStyle }>
           <Text
             className="status"
             style={[
-              clientStyle.statusTextStyle,
-              textStyles.titleTextColor
+              statusTextStyle,
+              titleTextColor
             ]}>
             { status }
           </Text>
           <Image
-            style= { clientStyle.statusImageStyle }
+            style= { statusImageStyle }
             source= { getIconSrc() }
           />
         </View>
 
         <View style={[
-            clientStyle.actionStyle
+            actionStyle
           ]}>
           <Button type="small">
             <Image
-              style= { clientStyle.actionImageStyle }
+              style= { actionImageStyle }
               source={ require('../assets/images/3dots.png') }
             />
           </Button>
         </View>
-
       </View>
 
       <View
         className="info"
-        style={ clientStyle.infoDealStyle }>
+        style={ infoDealStyle }>
         <Text
           className="titlelink"
           style={[
-            clientStyle.titleLinkStyle,
-            textStyles.titleTextColor
+            titleLinkStyle,
+            titleTextColor
           ]}>
           { title }
         </Text>
-        <Text style={ [clientStyle.infoTextStyle, textStyles.subtitleTextColor] }>{ id }</Text>
-        <Text style={ [clientStyle.infoTextStyle, textStyles.subtitleTextColor] }>{ author }</Text>
+        <Text style={[
+          infoTextStyle,
+          subtitleTextColor
+          ]}>
+          { id }
+        </Text>
+        <Text style={[
+          infoTextStyle,
+          subtitleTextColor
+          ]}>
+          { author }
+        </Text>
       </View>
 
       { dealButton }

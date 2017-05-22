@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Button, Card, CardSection } from '../components/common';
+import { Button } from '../components/common/Button';
 
 class Login extends React.Component {
   static navigationOptions = {
