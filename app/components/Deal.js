@@ -6,6 +6,9 @@ import { Button } from './common/Button';
 // Make a component
 const Deal = ({ deal, style }) => {
 
+  var dealStyles = require('../assets/styles/components/dealStyles.js');
+  var textStyles = require('../assets/styles/common/textStyles.js');
+
   const {
     id,
     title,
@@ -14,8 +17,22 @@ const Deal = ({ deal, style }) => {
     detail
   } = deal;
 
-  var dealStyles = require('../assets/styles/components/dealStyles.js');
-  var textStyles = require('../assets/styles/common/textStyles.js');
+  const {
+    containerStyle,
+    actionContainer,
+    actionImageStyle,
+    infoTextStyle,
+    titleTextStyle,
+    infoDealStyle,
+    infoTitleTextStyle,
+    infoDealContainerStyle,
+    textContainerDealStyle,
+  } = dealStyles;
+
+  const {
+    subtitleTextColor,
+    listImportantTextColor
+  } = textStyles;
 
   const getColorStatus = () => {
     switch (status) {
@@ -35,35 +52,60 @@ const Deal = ({ deal, style }) => {
   };
 
   return (
-    <View style={ dealStyles.containerStyle }>
+    <View style={ containerStyle }>
 
-      <View style={ dealStyles.status } />
+      <View />
 
       <View
         className="info"
-        style={ dealStyles.infoDealStyle }>
+        style={ infoDealStyle }>
 
-        <View style={ dealStyles.textContainerDealStyle }>
-          <Text style={ [dealStyles.infoTextStyle, textStyles.subtitleTextColor] }>{ id }</Text>
-          <Text style={ [dealStyles.titleTextStyle, textStyles.listImportantTextColor] }>{ title }</Text>
+        <View style={ textContainerDealStyle }>
+          <Text style={[
+            infoTextStyle,
+            subtitleTextColor
+            ]}>
+            { id }
+          </Text>
+          <Text style={[
+            titleTextStyle,
+            listImportantTextColor
+            ]}>
+            { title }
+          </Text>
         </View>
-        <View style={ [dealStyles.textContainerDealStyle, dealStyles.infoDealContainerStyle] }>
-          <Text style={ [dealStyles.infoTextStyle, textStyles.subtitleTextColor] }>{ detail }</Text>
-          <Text style={ [dealStyles.infoTitleTextStyle, textStyles.listImportantTextColor] }>{ info }</Text>
+
+        <View style={[
+          textContainerDealStyle,
+          infoDealContainerStyle
+          ]}>
+          <Text style={[
+            infoTextStyle,
+            subtitleTextColor
+            ]}>
+            { detail }
+          </Text>
+          <Text style={[
+            infoTitleTextStyle,
+            listImportantTextColor
+            ]}>
+            { info }
+          </Text>
+
         </View>
 
       </View>
 
-      <View style = { dealStyles.actionContainer }>
+      <View style = { actionContainer }>
         <Button type="list">
           <Image
-            style= { dealStyles.actionImageStyle }
+            style= { actionImageStyle }
             source={ require('../assets/images/pencil.png') }
           />
         </Button>
         <Button type="list">
           <Image
-            style= { dealStyles.actionImageStyle }
+            style= { actionImageStyle }
             source={ require('../assets/images/trash.png') }
           />
         </Button>

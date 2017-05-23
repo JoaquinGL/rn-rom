@@ -1,5 +1,16 @@
 var React = require('react-native');
 
+/*
+  const {
+    listBackgroundColor,
+    commonButtonTextStyle,
+    existingButtonTextStyle,
+    titleTextColor,
+    subtitleTextColor,
+    listImportantTextColor
+  } = textStyles;
+*/
+
 var textStyles = React.StyleSheet.create({
 /*/ ------------------------------------------------------------ COLORS */
   titleTextColor: {

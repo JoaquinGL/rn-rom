@@ -1,5 +1,19 @@
 var React = require('react-native');
 
+/*
+  const {
+    containerStyle,
+    actionContainer,
+    actionImageStyle,
+    infoTextStyle,
+    titleTextStyle,
+    infoDealStyle,
+    infoTitleTextStyle,
+    infoDealContainerStyle,
+    textContainerDealStyle,
+  } = dealStyle;
+*/
+
 var dealStyles = React.StyleSheet.create({
 /*/ ------------------------------------------------------------ CLIENT CARD */
   containerStyle: {

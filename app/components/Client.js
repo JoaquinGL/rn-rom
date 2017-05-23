@@ -66,17 +66,20 @@ const Client = ({ client, style }) => {
     <View style={[
         containerStyle,
         listBackgroundColor
-      ]}>
+      ]}
+    >
       <View
         className="header"
-        style={ headerClientStyle }>
+        style={ headerClientStyle }
+      >
         <View style={ statusStyle }>
           <Text
             className="status"
             style={[
               statusTextStyle,
               titleTextColor
-            ]}>
+            ]}
+          >
             { status }
           </Text>
           <Image
@@ -85,9 +88,7 @@ const Client = ({ client, style }) => {
           />
         </View>
 
-        <View style={[
-            actionStyle
-          ]}>
+        <View style= { actionStyle }>
           <Button type="small">
             <Image
               style= { actionImageStyle }
@@ -105,19 +106,22 @@ const Client = ({ client, style }) => {
           style={[
             titleLinkStyle,
             titleTextColor
-          ]}>
+          ]}
+        >
           { title }
         </Text>
         <Text style={[
           infoTextStyle,
           subtitleTextColor
-          ]}>
+          ]}
+        >
           { id }
         </Text>
         <Text style={[
           infoTextStyle,
           subtitleTextColor
-          ]}>
+          ]}
+        >
           { author }
         </Text>
       </View>
