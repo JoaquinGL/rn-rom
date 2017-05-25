@@ -5,7 +5,7 @@
 */
 
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { Button } from '../components/common/Button';
 import { Input } from '../components/common/Input';
 
@@ -18,14 +18,14 @@ class Login extends React.Component {
 
     const {
       loginStyles,
-      cardStyle,
+      boxStyle,
       fieldStyle,
       loginButtonStyle
     } = styles;
 
     return (
       <View style={ loginStyles }>
-        <View style={ cardStyle }>
+        <View style={ boxStyle }>
           <View style={ fieldStyle }>
             <Input
               label= "Username: "
@@ -50,10 +50,10 @@ class Login extends React.Component {
 const styles = {
   loginStyles: {
     flex: 1,
-    justifyContent: 'flex-start',
+    justifyContent: 'space-around',
     backgroundColor: 'white',
   },
-  cardStyle: {
+  boxStyle: {
     borderWidth: 1,
     borderColor: '#ddd',
     shadowColor: '#000',

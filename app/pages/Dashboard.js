@@ -1,7 +1,16 @@
 import React from 'react';
-import { Animated, StyleSheet, View, ScrollView, Text } from 'react-native';
+import {
+  Animated,
+  StyleSheet,
+  View,
+  ScrollView,
+  Text
+} from 'react-native';
 import axios from 'axios';
-import { TabViewAnimated, TabBar } from 'react-native-tab-view';
+import {
+  TabViewAnimated,
+  TabBar
+} from 'react-native-tab-view';
 import type { NavigationState } from 'react-native-tab-view/types';
 import Client from '../components/Client';
 import Deal from '../components/Deal';
@@ -108,7 +117,11 @@ class Dashboard extends React.Component {
       case '1':
 
         if (this.state.isLoading) {
-          return <View style={ styles.loadingViewStyle }><Text style={{textAlign: 'center'}}>Loading...</Text></View>;
+          return (
+            <View style={ styles.loadingViewStyle }>
+              <Text style={ styles.loadingText }>Loading...</Text>
+            </View>
+          );
         }
         else {
           return (
@@ -207,6 +220,9 @@ const styles = StyleSheet.create({
   loadingViewStyle: {
     flex: 1,
     justifyContent: 'center'
+  },
+  loadingText: {
+    textAlign: 'center'
   }
 });
 
